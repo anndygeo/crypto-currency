@@ -1,0 +1,20 @@
+.main-table
+  td {
+    text-align: right;
+  }
+  .tableElement  {
+    color: #42AAE2;
+  }
+  .table-element-left{
+   text-align: left;
+  }
+  .tableElement:hover{
+    color:#428BCA;
+    text-decoration: underline;
+  }
+  .percent-green{
+    color:#009933;
+  }
+  .percent-red{
+    color:#DA4836;
+  }
