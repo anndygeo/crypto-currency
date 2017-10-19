@@ -9,6 +9,19 @@ class CurrencyTable extends Component {
     super(props);
     this.state = {data: this.props.data}
   }
+  componentWillMount() {
+    this.getData();
+  }
+  componentDidUpdate(prevProps, prevState) {
+    // only update chart if the data has changed
+    if (prevProps.data !== this.props.data) {
+      this.getData();
+    }
+  }
+
+  getData() {
+    this.setState({data: this.props.data})
+  }
 
   bigNumerFormat(supply) {
     return parseInt(supply).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -24,7 +37,10 @@ class CurrencyTable extends Component {
 
   }
 
+
   render() {
+    // console.log("value", this.props.value)
+    // console.log("data",this.state.data)
     return (
       <Table className="main-table" responsive bordered condensed >
         <thead>
@@ -47,10 +63,10 @@ class CurrencyTable extends Component {
                   {element.name}
                 </div>
               </td>
-              <td>{this.bigNumerFormat(element["market_cap_"+this.props.tradeValue])}</td>
-              <td className="tableElement">{element["price_"+this.props.tradeValue]}</td>
+              <td>{this.bigNumerFormat(element["market_cap_"+this.props.value])}</td>
+              <td className="tableElement">{element["price_"+this.props.value]}</td>
               <td className="tableElement">{this.bigNumerFormat(element.total_supply)} {element.symbol}</td>
-              <td className="tableElement">{this.bigNumerFormat(element["24h_volume_"+this.props.tradeValue])}</td>
+              <td className="tableElement">{this.bigNumerFormat(element["24h_volume_"+this.props.value])}</td>
               <td>{this.colorPercent(element.percent_change_24h)}</td>
             </tr>
            )}

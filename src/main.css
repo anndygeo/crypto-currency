@@ -1,3 +1,8 @@
+body {
+  margin-left:100px;
+  margin-right:100px;
+}
+
 .main-table
   td {
     text-align: right;
@@ -18,3 +23,16 @@
   .percent-red{
     color:#DA4836;
   }
+  .main-table {
+    width: 80%;
+    font-size: 9px;
+  }
+
+.currencySelector{
+  background-color:#42AAE2;
+  color: #fff;
+}
+.currencySelector > option {
+  color: #42AAE2;
+  background-color: white;
+}
